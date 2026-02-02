@@ -10,6 +10,9 @@ public class MouseManager : MonoBehaviour
     public bool mouseDown;
 
     public List<RecipeScriptable> possiRecipes;
+
+    public Tile headTile;
+    public Material lineMaterial;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {

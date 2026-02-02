@@ -7,6 +7,7 @@ public class CreateGrid : MonoBehaviour
 
     public GameObject tilePrefab;
     public List<GameObject> tiles = new List<GameObject>();
+    public float sideLength;
 
     private void Awake()
     {
@@ -19,11 +20,11 @@ public class CreateGrid : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < sideLength; i++)
         {
-            for (int j = 0; j < 8; j++)
+            for (int j = 0; j < sideLength; j++)
             {
-                tiles.Add(Instantiate(tilePrefab, transform.position + new Vector3(j-3.5f,i-3.5f) , Quaternion.identity));
+                tiles.Add(Instantiate(tilePrefab, transform.position + new Vector3(j- ((sideLength - 1) / 2), i-((sideLength-1)/2)) , Quaternion.identity));
                 tiles[tiles.Count-1].GetComponent<Tile>().x = j;
                 tiles[tiles.Count-1].GetComponent<Tile>().y = i;
             }

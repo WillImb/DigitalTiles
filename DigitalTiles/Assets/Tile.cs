@@ -39,6 +39,8 @@ public class Tile : MonoBehaviour
        if(MouseManager.instance.currentPath.Count == 0)
         {
             MouseManager.instance.currentPath.Add(this);
+            MouseManager.instance.headTile = this;
+            
             curState = state.inPath;
             ChangeColor();
         }
@@ -54,6 +56,7 @@ public class Tile : MonoBehaviour
 
                 if(Mathf.Abs(lastTile.x - x) == 1 && Mathf.Abs(lastTile.y - y) == 0 || Mathf.Abs(lastTile.x - x) == 0 && Mathf.Abs(lastTile.y - y) == 1)
                 {
+                   
                     
                 }
                 else

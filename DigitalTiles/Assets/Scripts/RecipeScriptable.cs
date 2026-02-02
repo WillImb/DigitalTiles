@@ -6,5 +6,6 @@ public class RecipeScriptable : ScriptableObject
 {
     public float[] ingredients;
 
+    public float value;
 
 }
