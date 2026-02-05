@@ -36,7 +36,7 @@ public class Tile : MonoBehaviour
     }
     private void OnMouseDown()
     {
-       if(MouseManager.instance.currentPath.Count == 0)
+       if(MouseManager.instance.currentPath.Count == 0 && curState == state.none)
         {
             MouseManager.instance.currentPath.Add(this);
             MouseManager.instance.headTile = this;

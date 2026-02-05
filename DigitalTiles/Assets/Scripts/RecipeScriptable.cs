@@ -8,4 +8,6 @@ public class RecipeScriptable : ScriptableObject
 
     public float value;
 
+    public Sprite cover;
+
 }

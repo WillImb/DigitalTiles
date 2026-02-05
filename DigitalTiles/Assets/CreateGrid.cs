@@ -36,4 +36,17 @@ public class CreateGrid : MonoBehaviour
     {
         
     }
+
+    public void RegenerateGrid()
+    {
+        for (int i = 0; i < tiles.Count; i++)
+        {
+            Tile currentTile = tiles[i].GetComponent<Tile>();
+            if(currentTile.curState != Tile.state.none)
+            {
+                currentTile.curState = Tile.state.none;
+                currentTile.ChangeColor();
+            }
+        }
+    }
 }
