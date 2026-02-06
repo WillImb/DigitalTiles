@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,6 +16,14 @@ public class RoundManager : MonoBehaviour
 
 
     public int numOfCustomers;
+
+    float boardScore;
+    public float roundScore;
+    int boardNumber = 1;
+    
+    float boardMultSubtract = .5f;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private void Awake()
     {
@@ -36,7 +44,8 @@ public class RoundManager : MonoBehaviour
             }
             else
             {
-                //end of round                
+                //end of round
+                Debug.Log(roundScore);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
@@ -79,7 +88,7 @@ public class RoundManager : MonoBehaviour
                     
                     if (curCustomer.order[i] == activeRec[j])
                     {
-                        
+                        boardScore += activeRec[j].value;
                         curCustomer.order.Remove(curCustomer.order[i]);
                         activeRec.Remove(activeRec[j]);                        
                         break;
@@ -89,6 +98,8 @@ public class RoundManager : MonoBehaviour
                 }
                 
             }
+            CalcBoard();
+
             //clear board, empty acive recipes,
             CreateGrid.instance.RegenerateGrid();
             BoardManager.instance.activeRecipes.Clear();
@@ -132,5 +143,13 @@ public class RoundManager : MonoBehaviour
                 Destroy(children[i].gameObject);
             }
         }
+    }
+
+
+    public void CalcBoard()
+    {
+        roundScore += boardScore * Mathf.Pow(boardMultSubtract, boardNumber - 1);
+        boardScore = 0;
+        boardNumber++;
     }
 }

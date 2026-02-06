@@ -1275,7 +1275,7 @@ MonoBehaviour:
   curCustomer: {fileID: 0}
   orderPanel: {fileID: 1728679055}
   displayPrefab: {fileID: 626727066124771499, guid: f0ee879dc13b9c443b13c09bcc946a48, type: 3}
-  numOfCustomers: 0
+  numOfCustomers: 1
 --- !u!4 &1982565165
 Transform:
   m_ObjectHideFlags: 0
