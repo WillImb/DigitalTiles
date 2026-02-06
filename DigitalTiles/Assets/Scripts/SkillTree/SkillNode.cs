@@ -3,15 +3,18 @@ using UnityEngine;
 
 public class SkillNode : MonoBehaviour
 {
-    bool isAvailable;
-    bool isOn;
+    public bool isAvailable;
+    bool isBought;
     public List<SkillNode> nextNodes;
     public float cost;
 
+    public Color boughtColor;
+    public Color avaiableColor;
+    public Color offColor;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        ChangeState();
     }
 
     // Update is called once per frame
@@ -29,6 +32,8 @@ public class SkillNode : MonoBehaviour
                 s.TurnedOn();
             }
             isAvailable = false;
+            isBought = true;
+            ChangeState();
             SkillTreeManager.instance.brainCoins -= cost;
         }
     }
@@ -36,7 +41,25 @@ public class SkillNode : MonoBehaviour
 
     public void TurnedOn()
     {
-        isOn = true;
         isAvailable = true;
+        ChangeState();
+    }
+
+    void ChangeState()
+    {
+        if (isBought)
+        {
+            GetComponent<SpriteRenderer>().color = boughtColor;
+        }
+        else if (isAvailable)
+        {
+            GetComponent<SpriteRenderer>().color = avaiableColor;
+
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().color = offColor;
+
+        }
     }
 }

@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c5e6ea7aff87847815676b76e30904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brainCoins: 0
+  brainCoins: 100
 --- !u!4 &713063327
 Transform:
   m_ObjectHideFlags: 0
@@ -365,6 +365,10 @@ PrefabInstance:
     - target: {fileID: 7290021333904169282, guid: f5ff98815ea7241419f68391e58bbb11, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049986084374195741, guid: f5ff98815ea7241419f68391e58bbb11, type: 3}
+      propertyPath: isAvailable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
