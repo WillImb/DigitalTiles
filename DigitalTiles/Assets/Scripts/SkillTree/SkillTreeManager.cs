@@ -14,6 +14,10 @@ public class SkillTreeManager : MonoBehaviour
             instance = this;
         }
     }
+    private void Start()
+    {
+        brainCoins = PlayerPrefs.GetFloat("kudos", 0);
+    }
 
     // Update is called once per frame
     void Update()

@@ -45,7 +45,7 @@ public class RoundManager : MonoBehaviour
             else
             {
                 //end of round
-                Debug.Log(roundScore);
+                PlayerPrefs.SetFloat("money", roundScore);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
@@ -110,6 +110,7 @@ public class RoundManager : MonoBehaviour
             if (curCustomer.order.Count == 0)
             {
                 //spawn next customer
+                curCustomer.GiveKudos();
                 customers.RemoveAt(customers.Count() - 1);
                 Destroy(curCustomer.gameObject);
                 
