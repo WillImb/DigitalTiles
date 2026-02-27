@@ -17,6 +17,18 @@ public class Customer : MonoBehaviour
     private void Awake()
     {
         happiness = maxHappiness;
+        difficuly = GameManager.instance.dayNumber;
+
+        int difficulyCount = difficuly;
+        order = new List<RecipeScriptable>();
+        while(difficulyCount > 0)
+        {
+            RecipeScriptable recipe = RoundManager.instance.possibleOrders[Random.Range(0, RoundManager.instance.possibleOrders.Count)];
+            difficulyCount -= (int)(recipe.value);
+            order.Add(recipe);
+        }
+
+
     }
 
     // Update is called once per frame

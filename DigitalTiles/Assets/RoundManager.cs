@@ -14,6 +14,7 @@ public class RoundManager : MonoBehaviour
     public Transform orderPanel;
     public GameObject displayPrefab;
 
+    public List<RecipeScriptable> possibleOrders;
 
     public int numOfCustomers;
 
